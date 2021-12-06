@@ -30,11 +30,11 @@ http.createServer(function (req, res) {
         req.on('data', data => {
              pdata += data.toString();
         });
-	res.write("0");
+	//res.write("0");
 
         MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-	    res.write("1");
             if(err) { console.log("Connection err: " + err); return; }
+	    //res.write("1");
             
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
