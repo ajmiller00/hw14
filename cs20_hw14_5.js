@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://amille26:cs20hw14@cluster0.ocphp.mongodb.net/stockticker?retryWrites=true&w=majority";
 
 var port = process.env.PORT || 3000;
-var port = 8080;
+// var port = 8080;
   
 http.createServer(function (req, res) {
     adr = req.url
