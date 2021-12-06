@@ -46,7 +46,7 @@ http.createServer(function (req, res) {
             else if (pdata['rad'] == 'name' && input != "") {
               theQuery = {company: input};
             }
-	    else if (input == "") {
+	    else {
 		    return;
 	    }
 	    console.log("2");
