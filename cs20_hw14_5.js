@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 http.createServer(function (req, res) {
     adr = req.url
     
-//     if (adr == "/")
+     if (adr == "/")
 //     {
 //       file = 'cs20_hw14_2.html';
 //       fs.readFile(file, function(err, txt) {
@@ -19,8 +19,7 @@ http.createServer(function (req, res) {
 //       res.end();
 //       });
 //     }
-//     else 
-	if (adr.startsWith('/process'))
+//     else if (adr.startsWith('/process'))
     {
       file1 = 'cs20_hw14_2.html';
       fs.readFile(file1, function(err, txt) {
