@@ -36,6 +36,10 @@ http.createServer(function (req, res) {
             
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
+		
+	    if (input = "") {
+		return;
+	    }
 
             theQuery = "";
             if (pdata['rad'] == 'symbol' && input != "") {
