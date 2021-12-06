@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
 
         MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
             if(err) { console.log("Connection err: " + err); return; }
-	    res.write("1");
+	    console.log("1");
             
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
@@ -46,7 +46,10 @@ http.createServer(function (req, res) {
             else if (pdata['rad'] == 'name' && input != "") {
               theQuery = {company: input};
             }
-	    res.write("2");
+	    else if (input == "") {
+		    return;
+	    }
+	    console.log("2");
             if (theQuery != "") {
               coll.find(theQuery).toArray(function(err, items) {
                 if (err) {
@@ -63,11 +66,11 @@ http.createServer(function (req, res) {
                   res.write("<br>No match for input");
                 }
                 res.end();
-		  		db.close(); 
+		db.close(); 
             
               });
             }
-	    res.write("3");
+	    console.log("3");
         });
 
         req.on('end', () => {
