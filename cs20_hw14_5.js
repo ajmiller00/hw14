@@ -30,16 +30,14 @@ http.createServer(function (req, res) {
         req.on('data', data => {
              pdata += data.toString();
         });
+	res.write("0");
 
         MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+	    res.write("1");
             if(err) { console.log("Connection err: " + err); return; }
             
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
-		
-	    if (input = "") {
-		return;
-	    }
 
             theQuery = "";
             if (pdata['rad'] == 'symbol' && input != "") {
@@ -48,6 +46,7 @@ http.createServer(function (req, res) {
             else if (pdata['rad'] == 'name' && input != "") {
               theQuery = {company: input};
             }
+	    res.write("2");
             if (theQuery != "") {
               coll.find(theQuery).toArray(function(err, items) {
                 if (err) {
@@ -68,6 +67,7 @@ http.createServer(function (req, res) {
             
               });
             }
+	    res.write("3");
         });
 
         req.on('end', () => {
