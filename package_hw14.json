@@ -1,0 +1,23 @@
+{
+  "name": "package_hw14.json",
+  "version": "1.0.0",
+  "description": "stock ticker",
+  "main": "cs20_hw14_5.js",
+  "dependencies": {
+    "express": "3.x",
+    "mongodb": "*",
+    "mongoose": "*"
+  },
+  "scripts": {
+    "start": "node cs20_hw14_5.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "hw14"
+  },
+  "keywords": [
+    "stocks"
+  ],
+  "author": "Abigail Miller",
+  "license": "ISC"
+}
