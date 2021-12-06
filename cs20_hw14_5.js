@@ -25,7 +25,7 @@ http.createServer(function (req, res) {
 //       fs.readFile(file1, function(err, txt) {
 //         res.writeHead(200, {'Content-Type': 'text/html'});
 //         res.write(txt);
-
+	if (input != "") {
         pdata = "";
         req.on('data', data => {
              pdata += data.toString();
@@ -46,9 +46,6 @@ http.createServer(function (req, res) {
             else if (pdata['rad'] == 'name' && input != "") {
               theQuery = {company: input};
             }
-	    else {
-		    return;
-	    }
 	    console.log("2");
             if (theQuery != "") {
               coll.find(theQuery).toArray(function(err, items) {
@@ -72,6 +69,7 @@ http.createServer(function (req, res) {
             }
 	    console.log("3");
         });
+	}
 
         req.on('end', () => {
           pdata = qs.parse(pdata);
