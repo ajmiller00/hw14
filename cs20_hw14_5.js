@@ -16,15 +16,6 @@ http.createServer(function (req, res) {
       fs.readFile(file, function(err, txt) {
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(txt);
-      // res.end();
-      });
-//     }
-//     else if (adr.startsWith('/process'))
-//     {
-//       file1 = 'cs20_hw14_2.html';
-//       fs.readFile(file1, function(err, txt) {
-//         res.writeHead(200, {'Content-Type': 'text/html'});
-//         res.write(txt);
 
         pdata = "";
         req.on('data', data => {
