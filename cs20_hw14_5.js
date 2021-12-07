@@ -16,6 +16,15 @@ http.createServer(function (req, res) {
       fs.readFile(file, function(err, txt) {
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(txt);
+      // res.end();
+      });
+//     }
+//     else if (adr.startsWith('/process'))
+//     {
+//       file1 = 'cs20_hw14_2.html';
+//       fs.readFile(file1, function(err, txt) {
+//         res.writeHead(200, {'Content-Type': 'text/html'});
+//         res.write(txt);
 
         pdata = "";
         req.on('data', data => {
@@ -28,7 +37,7 @@ http.createServer(function (req, res) {
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
 
-			
+			// if (input != "") {
 
 	            theQuery = "";
 	            if (pdata['rad'] == 'symbol' && input != "") {
@@ -55,20 +64,27 @@ http.createServer(function (req, res) {
 					res.end();
 		  			db.close(); 
 	              });
-			
+				// res.end();
+		  // 		db.close(); 
 	            } else {
 					res.end();
 		  			db.close(); 
 
 				}
-				
+				// res.end();
+		  // 		db.close(); 
+			// }
+			// else {
+			// 	res.end();
+			//   	db.close(); 
+			// }
         });
 
         req.on('end', () => {
           pdata = qs.parse(pdata);
           global.input = pdata['user_input'];
         });
-      
+      //});
     
     }
     else 
