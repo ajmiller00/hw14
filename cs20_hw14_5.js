@@ -37,7 +37,7 @@ http.createServer(function (req, res) {
             var dbo = db.db("stockticker");
             var coll = dbo.collection('companies');
 
-			// if (input != "") {
+			
 
 	            theQuery = "";
 	            if (pdata['rad'] == 'symbol' && input != "") {
@@ -64,27 +64,20 @@ http.createServer(function (req, res) {
 					res.end();
 		  			db.close(); 
 	              });
-				// res.end();
-		  // 		db.close(); 
+			
 	            } else {
 					res.end();
 		  			db.close(); 
 
 				}
-				// res.end();
-		  // 		db.close(); 
-			// }
-			// else {
-			// 	res.end();
-			//   	db.close(); 
-			// }
+				
         });
 
         req.on('end', () => {
           pdata = qs.parse(pdata);
           global.input = pdata['user_input'];
         });
-      //});
+      
     
     }
     else 
